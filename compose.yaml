@@ -1,0 +1,15 @@
+iversion: '3'
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - /home/gdan/doocker/homeass/data:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /dev/ttyACM0:/dev/ttyACM0
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+
